@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# Project custom
+out
+dist
+resources/*.orig.json
+.DS_Store
