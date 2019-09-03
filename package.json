@@ -1,0 +1,93 @@
+{
+  "name": "tennis-players-express-api-demo",
+  "version": "1.0.0",
+  "description": "Small Express API with JSON file as a database.",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm --silent install && npm run -s build && npm run jsdoc",
+    "start": "node ./dist/index.js",
+    "dev": "NODE_ENV=dev nodemon --ignore 'resources/*.json' --exec babel-node src/index.js",
+    "pretest": "npm --silent install && eslint --no-eslintrc -c package.json ./src/",
+    "test": "jest --coverage --passWithNoTests",
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && mkdir -p dist && babel ./src -s -D --source-maps -d dist",
+    "jsdoc": "./node_modules/.bin/jsdoc --verbose --recurse ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manthis/tennis-players-express-api-demo.git"
+  },
+  "keywords": [
+    "api",
+    "node",
+    "express",
+    "json"
+  ],
+  "author": "Maxime AUBURTIN",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/manthis/tennis-players-express-api-demo/issues"
+  },
+  "homepage": "https://github.com/manthis/tennis-players-express-api-demo#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.16.0",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
+    "jsdoc": "^3.6.3",
+    "nodemon": "^1.19.1",
+    "rimraf": "^3.0.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      "transform-class-properties"
+    ]
+  },
+  "eslintConfig": {
+    "plugins": [
+      "import",
+      "jest"
+    ],
+    "extends": [
+      "eslint:recommended"
+    ],
+    "env": {
+      "node": true,
+      "jest": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "rules": {
+      "jest/no-focused-tests": 2,
+      "jest/no-identical-title": 2
+    }
+  }
+}
