@@ -24,5 +24,5 @@ Note that the code documentation is generated on application start.
 
 ## CI/CD
 
-This project is configured to be depoyed to Heroku through CircleCI. You will find the CircleCI configuration file
-in the '.circleci/config.xml' directory of the project. Only the master branch is tested and if tests are successful: deployed.
+This project is configured to be depoyed to Heroku through CircleCI. You will find the CircleCI configuration 
+in the '.circleci/config.xml' file of the project. Only the master branch is tested and if tests are successful: deployed.
