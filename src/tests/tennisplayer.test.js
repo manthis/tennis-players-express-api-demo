@@ -24,10 +24,14 @@ describe('Test the TennisPlayerModel class', () => {
         mockFn.mockReturnValue(true);
 
         let model = new TennisPlayerModel();
+
+        fs.existsSync.mockReturnValue(false);
         model._performDatabaseOperations(mockFn);
+        expect(mockFn).not.toHaveBeenCalled();
 
+        fs.existsSync.mockReturnValue(true);
+        model._performDatabaseOperations(mockFn);
         expect(mockFn).toHaveBeenCalled();
-
     });
 
     test('Test the getAllTennisPlayersSortedByIdAsc static method of the class', () => {
