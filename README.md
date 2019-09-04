@@ -21,3 +21,8 @@ Librairies will be downloaded and the Express server will be started on port 808
 Please refer to the HTML documentation located in the folder named 'out' in order to view the code documentation.
 
 Note that the code documentation is generated on application start.
+
+## CI/CD
+
+This project is configured to be depoyed to Heroku through CircleCI. You will find the CircleCI configuration file
+in the '.circleci/config.xml' directory of the project. Only the master branch is tested and if tests are successful: deployed.
